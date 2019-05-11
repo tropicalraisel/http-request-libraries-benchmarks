@@ -5,7 +5,7 @@ import nock from 'nock';
 import request from 'request';
 
 import axios from 'axios';
-import got from 'got';
+// import got from 'got';
 import fetch from 'node-fetch';
 
 const HOST = 'benchmark';
@@ -179,32 +179,32 @@ suite.add('axios https POST request', {
   },
 });
 
-// got
-suite.add('got http GET request', {
-  defer: true,
-  fn: (defer: any) => {
-    got.get(`${HTTP_BASE_URL}${PATH}`).then(() => defer.resolve());
-  },
-});
-suite.add('got http POST request', {
-  defer: true,
-  fn: (defer: any) => {
-    got.post(`${HTTP_BASE_URL}${PATH}`).then(() => defer.resolve());
-  },
-});
+// // got
+// suite.add('got http GET request', {
+//   defer: true,
+//   fn: (defer: any) => {
+//     got.get(`${HTTP_BASE_URL}${PATH}`).then(() => defer.resolve());
+//   },
+// });
+// suite.add('got http POST request', {
+//   defer: true,
+//   fn: (defer: any) => {
+//     got.post(`${HTTP_BASE_URL}${PATH}`).then(() => defer.resolve());
+//   },
+// });
 
-suite.add('got https GET request', {
-  defer: true,
-  fn: (defer: any) => {
-    got.get(`${HTTPS_BASE_URL}${PATH}`).then(() => defer.resolve());
-  },
-});
-suite.add('got https POST request', {
-  defer: true,
-  fn: (defer: any) => {
-    got.post(`${HTTPS_BASE_URL}${PATH}`).then(() => defer.resolve());
-  },
-});
+// suite.add('got https GET request', {
+//   defer: true,
+//   fn: (defer: any) => {
+//     got.get(`${HTTPS_BASE_URL}${PATH}`).then(() => defer.resolve());
+//   },
+// });
+// suite.add('got https POST request', {
+//   defer: true,
+//   fn: (defer: any) => {
+//     got.post(`${HTTPS_BASE_URL}${PATH}`).then(() => defer.resolve());
+//   },
+// });
 
 suite
   .on('cycle', (event: Event) => {
