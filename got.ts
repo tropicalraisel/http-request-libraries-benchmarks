@@ -1,35 +1,35 @@
-import fetch from "node-fetch";
+import got from "got";
 import { HTTP_BASE_URL, HTTPS_BASE_URL, PATH } from "./_constants";
 import { IBenchmarkModel } from "./types/benchmark-models";
 
 const benchmarkModels: IBenchmarkModel[] = [
   {
     fn: async (defer: any) => {
-      await (await fetch(`${HTTP_BASE_URL}${PATH}`)).json();
+      await got.get(`${HTTP_BASE_URL}${PATH}`);
       defer.resolve();
     },
-    target: "[fetch] http [GET]",
+    target: "[got] http [GET]",
   },
   {
     fn: async (defer: any) => {
-      await (await fetch(`${HTTP_BASE_URL}${PATH}`, { method: "POST" })).json();
+      await got.post(`${HTTP_BASE_URL}${PATH}`);
       defer.resolve();
     },
-    target: "[fetch] http [POST]",
+    target: "[got] http [POST]",
   },
   {
     fn: async (defer: any) => {
-      await (await fetch(`${HTTPS_BASE_URL}${PATH}`)).json();
+      await got.get(`${HTTPS_BASE_URL}${PATH}`);
       defer.resolve();
     },
-    target: "[fetch] https [GET]",
+    target: "[got] https [GET]",
   },
   {
     fn: async (defer: any) => {
-      await (await fetch(`${HTTPS_BASE_URL}${PATH}`, { method: "POST" })).json();
+      await got.get(`${HTTPS_BASE_URL}${PATH}`);
       defer.resolve();
     },
-    target: "[fetch] https [POST]",
+    target: "[got] https [POST]",
   },
 ];
 

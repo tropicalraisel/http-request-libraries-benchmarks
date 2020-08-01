@@ -7,6 +7,7 @@ import {
   RESPONSE_BODY,
 } from "./_constants";
 import axiosModels from "./axios";
+import gotModels from "./got";
 import coreModels from "./core";
 import corePromisifiedModels from "./core-promisified";
 import fetchModels from "./fetch";
@@ -30,6 +31,7 @@ nock(HTTPS_BASE_URL)
 
 const models = [
   ...axiosModels,
+  ...gotModels,
   ...coreModels,
   ...corePromisifiedModels,
   ...fetchModels,
